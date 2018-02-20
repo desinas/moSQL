@@ -18,8 +18,18 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        use: ['style-loader', 'css-loader'],
-        test: /\.css$/
+        test: /\.scss$/,
+        use: [
+          { loader: 'file-loader', options: { name: '[name].css' } },
+          { loader: 'sass-loader',
+            options: {
+              outputStyle: 'compressed',
+              includePaths: [
+                './node_modules'
+              ]
+            }
+          }
+        ]
       }
     ]
   },

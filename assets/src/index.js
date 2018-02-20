@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-console.log('hey there!!');
+
+import '../scss/index.scss';
+
 const App = () => {
   return (
     <div>
