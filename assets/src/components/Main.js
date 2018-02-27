@@ -1,26 +1,23 @@
-import React, { Component, PropTypes } from 'react';
-import Sidebar from 'grommet/components/Sidebar';
-import Header from 'grommet/components/Header';
-import Title from 'grommet/components/Title';
-import FormField from 'grommet/components/FormField';
-import Form from 'grommet/components/Form';
+import React, { Component, PropTypes } from "react";
+import Sidebar from "grommet/components/Sidebar";
+import Split from "grommet/components/Split";
+import Header from "grommet/components/Header";
+import Title from "grommet/components/Title";
+import TextEditor from "./TextEditor";
 
-export default class Main extends Component {
-    render(){
-        return (
-            <Sidebar colorIndex='neutral-1' fixed={false}>
-                <Header pad='medium' justify='between'>
-                    <Title>
-                        MoSQL
-                    </Title>
-                </Header>
+const Main = props => {
+  return (
+    <Split flex="right">
+      <Sidebar colorIndex="neutral-1" fixed={false}>
+        <Header pad="small" justify="between">
+          <Title>MoSQL - JSON to SQL</Title>
+        </Header>
+      </Sidebar>
+      <TextEditor>
 
-                <Form>
-  <FormField label='Sample label'>
-    <textarea />
-  </FormField>
-</Form>
-            </Sidebar>
-        )
-    }
-}
+      </TextEditor>
+    </Split>
+  );
+};
+
+export default Main;
