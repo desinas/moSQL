@@ -5,7 +5,7 @@
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
-    "draft-js": "^0.10.5",
+    "codemirror": "^5.35.0",
     "ejs": "2.3.4",
     "grommet": "^1.10.1",
     "grunt": "1.0.1",
@@ -24,6 +24,7 @@
     "mongo-sql": "^5.0.1",
     "rc": "1.0.1",
     "react": "^16.2.0",
+    "react-codemirror": "^1.0.0",
     "react-dom": "^16.2.0",
     "redux": "^3.7.2",
     "sails": "~0.12.14",

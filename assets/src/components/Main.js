@@ -1,9 +1,9 @@
-import React, { Component, PropTypes } from "react";
+import React from "react";
 import Sidebar from "grommet/components/Sidebar";
 import Split from "grommet/components/Split";
 import Header from "grommet/components/Header";
 import Title from "grommet/components/Title";
-import TextEditor from "./TextEditor";
+import CodeMirrorPanel from "./CodeMirrorPanel";
 
 const Main = props => {
   return (
@@ -13,9 +13,8 @@ const Main = props => {
           <Title>MoSQL - JSON to SQL</Title>
         </Header>
       </Sidebar>
-      <TextEditor>
-
-      </TextEditor>
+      <CodeMirrorPanel>
+      </CodeMirrorPanel>
     </Split>
   );
 };
