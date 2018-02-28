@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import CodeMirror from 'react-codemirror';
 import Split from 'grommet/components/Split';
+import CodeMirror from 'react-codemirror';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/mode/javascript/javascript';
 import 'codemirror/mode/markdown/markdown';
@@ -8,7 +8,7 @@ import './_codeMirrorPanel.css';
 
 var builder = require('mongo-sql');
 
-export default class CodeMirrorPanel extends Component {
+class CodeMirrorPanel extends Component {
 
     constructor() {
         super();
@@ -17,21 +17,20 @@ export default class CodeMirrorPanel extends Component {
             codeRight: '// Result',
             mode: 'javascript'
         };
+        this.updateCode = this.updateCode.bind(this);
     }
 
-    updateCode(newCode) {
-        this.setState({
-            codeLeft: newCode
-        });
-
-        
+    updateCode(newCode) {      
         var usersQuery = {
             type: 'select'
           , table: 'users'
           , where: { $or: { id: 5, name: 'Bob' } }
           };
           const result = builder.sql(usersQuery);
-        console.log(this.state.codeLeft);
+        this.setState({
+            codeLeft: newCode,
+            codeRight: result
+        });
     }
 
     render(){
@@ -41,15 +40,22 @@ export default class CodeMirrorPanel extends Component {
         };
         const optionsRight = {
             lineNumbers: true,
-            mode: 'markdown',
-            readOnly: true
-        }
+            mode: 'markdown'
+        };
+        
         return (
             <Split>
-                <CodeMirror value={this.state.codeLeft} onChange={this.updateCode.bind(this)} options={optionsLeft} />
-                <CodeMirror value={this.state.codeRight} options={optionsRight} />
+                <CodeMirror value={this.state.codeLeft} onChange={this.updateCode} options={optionsLeft}  />
+                <div className='ReactCodeMirror'>
+				<textarea
+					value={this.state.codeRight}
+					autoComplete="off"
+				/>
+			</div>
             </Split>
             
         );
     }
 }
+
+export default CodeMirrorPanel;
