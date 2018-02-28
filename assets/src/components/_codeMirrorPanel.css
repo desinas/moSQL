@@ -1,0 +1,8 @@
+.ReactCodeMirror {
+    border: 1px solid #ccc;
+    height: 100%;
+}
+
+.CodeMirror {
+    min-height: 100%
+}
