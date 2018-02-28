@@ -20,13 +20,10 @@ class CodeMirrorPanel extends Component {
         this.updateCode = this.updateCode.bind(this);
     }
 
-    updateCode(newCode) {      
-        var usersQuery = {
-            type: 'select'
-          , table: 'users'
-          , where: { $or: { id: 5, name: 'Bob' } }
-          };
-          const result = builder.sql(usersQuery);
+    updateCode(newCode) { 
+        debugger     
+        const jsCode = JSON.parse(newCode.trim());
+        const result = builder.sql(jsCode);
         this.setState({
             codeLeft: newCode,
             codeRight: result
