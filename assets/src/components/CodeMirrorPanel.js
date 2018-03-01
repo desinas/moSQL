@@ -6,53 +6,50 @@ import 'codemirror/mode/javascript/javascript';
 import 'codemirror/mode/markdown/markdown';
 import './_codeMirrorPanel.css';
 
-var builder = require('mongo-sql');
+const builder = require('mongo-sql');
 
 class CodeMirrorPanel extends Component {
+  constructor() {
+    super();
+    const initialString = `{
+  "type": "select",
+  "table": "users"
+}`;
+    const jsCode = JSON.parse(initialString.trim());
+    const result = builder.sql(jsCode);
+    this.state = {
+      codeLeft: initialString,
+      codeRight: result,
+      mode: 'javascript'
+    };
+    this.updateCode = this.updateCode.bind(this);
+  }
 
-    constructor() {
-        super();
-        this.state = {
-            codeLeft: '// Code',
-            codeRight: '// Result',
-            mode: 'javascript'
-        };
-        this.updateCode = this.updateCode.bind(this);
-    }
+  updateCode(newCode) {
+    const jsCode = JSON.parse(newCode.trim());
+    const result = builder.sql(jsCode);
+    this.setState({
+      codeLeft: newCode,
+      codeRight: result
+    });
+  }
 
-    updateCode(newCode) { 
-        debugger     
-        const jsCode = JSON.parse(newCode.trim());
-        const result = builder.sql(jsCode);
-        this.setState({
-            codeLeft: newCode,
-            codeRight: result
-        });
-    }
+  render() {
+    const optionsLeft = {
+      lineNumbers: true,
+      mode: this.state.mode
+    };
 
-    render(){
-        const optionsLeft = {
-            lineNumbers: true,
-            mode: this.state.mode
-        };
-        const optionsRight = {
-            lineNumbers: true,
-            mode: 'markdown'
-        };
-        
-        return (
-            <Split>
-                <CodeMirror value={this.state.codeLeft} onChange={this.updateCode} options={optionsLeft}  />
-                <div className='ReactCodeMirror'>
-				<textarea
-					value={this.state.codeRight}
-					autoComplete="off"
-				/>
-			</div>
-            </Split>
-            
-        );
-    }
+    return (
+      <Split>
+        <CodeMirror value={this.state.codeLeft} onChange={this.updateCode} options={optionsLeft}
+          autoFocus={true} />
+        <div className="ReactCodeMirror">
+          <textarea value={this.state.codeRight} autoComplete="off" />
+        </div>
+      </Split>
+    );
+  }
 }
 
 export default CodeMirrorPanel;
