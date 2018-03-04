@@ -1,8 +1,9 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ProvidePlugin = require('webpack/lib/ProvidePlugin');
 var helpers = require('./helpers');
 
-const VENDOR_LIBS = ['react', 'react-dom'];
+const VENDOR_LIBS = ['react', 'react-dom', 'tether'];
 
 module.exports = {
   entry: {
@@ -48,6 +49,17 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       template: 'assets/src/index.html'
+    }),
+
+    new ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+      tether: 'tether',
+      Tether: 'tether',
+      'window.Tether': 'tether',
+      Popper: ['popper.js', 'default'],
+      'window.Tether': 'tether',
     })
   ]
 };

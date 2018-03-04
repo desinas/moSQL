@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Split from 'grommet/components/Split';
 import CodeMirror from 'react-codemirror';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/mode/javascript/javascript';
@@ -41,13 +40,17 @@ class CodeMirrorPanel extends Component {
     };
 
     return (
-      <Split>
-        <CodeMirror value={this.state.codeLeft} onChange={this.updateCode} options={optionsLeft}
-          autoFocus={true} />
-        <div className="ReactCodeMirror">
-          <textarea value={this.state.codeRight} autoComplete="off" />
+      <div className="row h-100">
+        <div className="col">
+          <CodeMirror value={this.state.codeLeft} onChange={this.updateCode} options={optionsLeft}
+            autoFocus={true} />
         </div>
-      </Split>
+        <div className="col">
+          <div className="ReactCodeMirror">
+            <textarea value={this.state.codeRight} autoComplete="off" />
+          </div>
+        </div>
+      </div>
     );
   }
 }

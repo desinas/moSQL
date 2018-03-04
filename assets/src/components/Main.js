@@ -1,21 +1,18 @@
 import React from "react";
-import Sidebar from "grommet/components/Sidebar";
-import Split from "grommet/components/Split";
-import Header from "grommet/components/Header";
-import Title from "grommet/components/Title";
 import CodeMirrorPanel from "./CodeMirrorPanel";
 
 const Main = props => {
   return (
-    <Split flex="right">
-      <Sidebar colorIndex="neutral-1" fixed={false}>
-        <Header pad="small" justify="between">
-          <Title>MoSQL - JSON to SQL</Title>
-        </Header>
-      </Sidebar>
+    <div>
+      <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
+        <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <a className="navbar-brand" href="#">mo-sql tester</a>
+      </nav>
       <CodeMirrorPanel>
       </CodeMirrorPanel>
-    </Split>
+    </div>
   );
 };
 

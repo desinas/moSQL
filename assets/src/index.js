@@ -1,8 +1,8 @@
 import React from 'react';
 import Main from './components/Main';
 import ReactDOM from 'react-dom';
-
-import '../scss/index.scss';
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   return (
@@ -10,7 +10,5 @@ const App = () => {
   );
 };
 
-const element = document.getElementById('content');
+const element = document.getElementById('root');
 ReactDOM.render(<App />, element);
-
-document.body.classList.remove('loading');

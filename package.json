@@ -6,6 +6,7 @@
   "keywords": [],
   "dependencies": {
     "babel-eslint": "^8.2.2",
+    "bootstrap": "4.0.0-alpha.6",
     "codemirror": "^5.35.0",
     "css-loader": "^0.28.10",
     "ejs": "2.3.4",
@@ -13,7 +14,6 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-react": "^7.7.0",
-    "grommet": "^1.10.1",
     "grunt": "1.0.1",
     "grunt-contrib-clean": "1.0.0",
     "grunt-contrib-coffee": "1.0.0",
@@ -27,9 +27,11 @@
     "grunt-sails-linker": "~0.10.1",
     "grunt-sync": "0.5.2",
     "include-all": "^1.0.0",
+    "jquery": "^3.3.1",
     "lodash.debounce": "^4.0.8",
     "lodash.isequal": "^4.5.0",
     "mongo-sql": "^5.0.1",
+    "popper.js": "^1.12.9",
     "rc": "1.0.1",
     "react": "^15.5",
     "react-codemirror": "^1.0.0",
@@ -37,7 +39,8 @@
     "redux": "^3.7.2",
     "sails": "~0.12.14",
     "sails-disk": "~0.10.9",
-    "style-loader": "^0.20.2"
+    "style-loader": "^0.20.2",
+    "tether": "^1.4.3"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
