@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import CodeMirror from 'react-codemirror';
+import { Controlled as CodeMirror } from 'react-codemirror2';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/mode/javascript/javascript';
 import 'codemirror/mode/sql/sql';
 import 'codemirror/mode/markdown/markdown';
 import './_codeMirrorPanel.css';
-
-// const builder = require('mongo-sql');
 
 class CodeMirrorPanel extends Component {
   constructor() {
@@ -19,13 +17,17 @@ class CodeMirrorPanel extends Component {
       codeLeft: initialString,
       mode: 'javascript'
     };
+
     this.updateCode = this.updateCode.bind(this);
   }
 
-  updateCode(newCode) {
+  componentDidMount() {
     const { onWriteDown } = this.props;
-    // const jsCode = JSON.parse(newCode.trim());
-    // const result = builder.sql(jsCode);
+    onWriteDown(this.state.codeLeft);
+  }
+
+  updateCode(editor, data, newCode) {
+    const { onWriteDown } = this.props;
     this.setState({
       codeLeft: newCode
     });
@@ -33,8 +35,8 @@ class CodeMirrorPanel extends Component {
   }
 
   render() {
-    debugger
     const { codeRight } = this.props;
+
     const optionsLeft = {
       lineNumbers: true,
       mode: this.state.mode
@@ -44,12 +46,14 @@ class CodeMirrorPanel extends Component {
       lineNumbers: true,
       mode: 'text/x-sql'
     };
-
     return (
       <div className="row h-100">
         <div className="col">
           <CodeMirror
             value={this.state.codeLeft}
+            onBeforeChange={(editor, data, value) => {
+              this.setState({ codeLeft: value });
+            }}
             onChange={this.updateCode}
             options={optionsLeft}
             autoFocus={true}
