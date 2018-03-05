@@ -3,7 +3,7 @@ import CodePanel from '../containers/CodePanel';
 
 const Main = props => (
     <div>
-      <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
+      <nav className="navbar navbar-toggleable-md navbar-inverse bg-inverse">
         <button
           className="navbar-toggler navbar-toggler-right"
           type="button"

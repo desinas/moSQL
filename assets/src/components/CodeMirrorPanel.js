@@ -46,21 +46,30 @@ class CodeMirrorPanel extends Component {
       lineNumbers: true,
       mode: 'text/x-sql'
     };
+
     return (
-      <div className="row h-100">
-        <div className="col">
-          <CodeMirror
-            value={this.state.codeLeft}
-            onBeforeChange={(editor, data, value) => {
-              this.setState({ codeLeft: value });
-            }}
-            onChange={this.updateCode}
-            options={optionsLeft}
-            autoFocus={true}
-          />
+      <div >
+        <div className="row">
+          <div className="col">
+            <CodeMirror
+              value={this.state.codeLeft}
+              onBeforeChange={(editor, data, value) => {
+                this.setState({ codeLeft: value });
+              }}
+              onChange={this.updateCode}
+              options={optionsLeft}
+              autoFocus={true}
+            />
+          </div>
+          <div className="col">
+            <CodeMirror options={optionsRight} value={codeRight} />
+          </div>
         </div>
-        <div className="col">
-          <CodeMirror options={optionsRight} value={codeRight} />
+        <div className="row bg-faded">
+          <br/>
+        </div>
+        <div className="form-group row container-fluid">
+            <textarea className="form-control" rows="5" value={codeRight}></textarea>
         </div>
       </div>
     );

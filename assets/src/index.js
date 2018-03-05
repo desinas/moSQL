@@ -4,10 +4,10 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import convert from './reducers/convert';
+import conversion from './reducers/convert';
 import Main from './components/Main';
 
-const store = createStore(convert);
+const store = createStore(conversion);
 
 const App = () => (
     <Provider store={store}>

@@ -3,7 +3,7 @@ import { convertMongoSql } from '../actions/actions';
 import CodeMirrorPanel from '../components/CodeMirrorPanel';
 
 const mapStateToProps = state => ({
-  codeRight: state.convert
+  codeRight: state.conversion.result
 });
 
 const mapDispatchToProps = dispatch => ({
