@@ -36,6 +36,7 @@
     "react": "^15.5",
     "react-codemirror": "^1.0.0",
     "react-dom": "^15.5",
+    "react-redux": "^5.0.7",
     "redux": "^3.7.2",
     "sails": "~0.12.14",
     "sails-disk": "~0.10.9",
