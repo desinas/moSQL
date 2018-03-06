@@ -2,9 +2,7 @@ import { connect } from 'react-redux';
 import { convertMongoSql } from '../actions/actions';
 import CodeMirrorPanel from '../components/CodeMirrorPanel';
 
-const mapStateToProps = state => ({
-  codeRight: state.conversion.result
-});
+const mapStateToProps = state => (state.conversion);
 
 const mapDispatchToProps = dispatch => ({
   onWriteDown: (text) => {

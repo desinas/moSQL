@@ -35,20 +35,24 @@ class CodeMirrorPanel extends Component {
   }
 
   render() {
-    const { codeRight } = this.props;
+    const { result, message, status } = this.props;
 
     const optionsLeft = {
       lineNumbers: true,
-      mode: this.state.mode
+      mode: this.state.mode,
+      lineWrapping: true
     };
 
     const optionsRight = {
       lineNumbers: true,
-      mode: 'text/x-sql'
+      mode: 'text/x-sql',
+      lineWrapping: true
     };
 
+    const taClass = `form-control ${status ? 'text-success' : 'text-danger'}`;
+
     return (
-      <div >
+      <div>
         <div className="row">
           <div className="col">
             <CodeMirror
@@ -62,14 +66,14 @@ class CodeMirrorPanel extends Component {
             />
           </div>
           <div className="col">
-            <CodeMirror options={optionsRight} value={codeRight} />
+            <CodeMirror options={optionsRight} value={result} />
           </div>
         </div>
         <div className="row bg-faded">
-          <br/>
+          <br />
         </div>
         <div className="form-group row container-fluid">
-            <textarea className="form-control" rows="5" value={codeRight}></textarea>
+          <textarea className={taClass} rows="6" value={message} />
         </div>
       </div>
     );

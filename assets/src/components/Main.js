@@ -16,7 +16,7 @@ const Main = props => (
           <span className="navbar-toggler-icon" />
         </button>
         <a className="navbar-brand" href="#">
-          mo-sql tester
+          mongo-sql tester
         </a>
       </nav>
       <CodePanel />
